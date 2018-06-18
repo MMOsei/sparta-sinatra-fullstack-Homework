@@ -12,7 +12,7 @@ class HomeController < Sinatra::Base
   end
 
   get '/' do
-    '<h1>Welcome!<h1>'
+    erb :'home/index'
   end
 
 end

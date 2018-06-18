@@ -1,35 +1,35 @@
-class Ikealovers
+class Ikealover
 
   attr_accessor :id, :first_name, :last_name, :ikea_visits, :gender
 
   def self.open_connection
-    conn = PG.connect( dbname: 'ikeamalt_data' )
+    conn = PG.connect( dbname: 'ikeamalt_data', port: 5431 )
   end
 
   def self.all
 
     conn = self.open_connection
 
-    sql = "SELECT * FROM ikeamalt_data ORDER BY id"
+    sql = "SELECT * FROM mock_data ORDER BY id"
 
     results = conn.exec(sql)
 
     ikealovers = results.map do |ikealover|
-      self.hydrate ikeavisit
+      self.hydrate ikealover
     end
 
-    ikeavisits
+    ikealovers
 
   end
 
   def save
 
-    conn = Ikeavisit.open_connection
+    conn = Ikealover.open_connection
 
     if (!self.id)
-      sql = "INSERT INTO ikeamalt_data (first_name,last_name,ikea_visits,gender) VALUES ('#{self.first_name}','#{self.last_name}','#{self.ikeikea_visits}','#{self.gender}')"
+      sql = "INSERT INTO mock_data (first_name,last_name,ikea_visits,gender) VALUES ('#{self.first_name}','#{self.last_name}','#{self.ikeikea_visits}','#{self.gender}')"
     else
-      sql = "UPDATE ikeamalt_data SET first_name='#{self.first_name}', last_name='#{self.last_name}', ikea_visits='#{self.ikea_visits}', gender='#{self.gender}' WHERE id ='#{self.id}'"
+      sql = "UPDATE mock_data SET first_name='#{self.first_name}', last_name='#{self.last_name}', ikea_visits='#{self.ikea_visits}', gender='#{self.gender}' WHERE id ='#{self.id}'"
     end
 
     conn.exec(sql)
@@ -40,7 +40,7 @@ class Ikealovers
 
     conn = self.open_connection
 
-    sql = "SELECT * FROM ikeamalt_data WHERE id=#{id} LIMIT 1"
+    sql = "SELECT * FROM mock_data WHERE id=#{id} LIMIT 1"
 
     ikealovers = conn.exec(sql)
 
@@ -53,7 +53,7 @@ class Ikealovers
   def self.destroy id
     conn = self.open_connection
 
-    sql = "DELETE FROM ikeamalt_data WHERE id=#{id}"
+    sql = "DELETE FROM mock_data WHERE id=#{id}"
 
     conn.exec(sql)
   end
