@@ -1,0 +1,26 @@
+<form action="/workers<% if(@worker.id != '') %>/<%= @worker.id %><% end %>" method="post">
+
+  <div>
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" value="<%= @worker.first_name %>" placeholder="First Name">
+  </div>
+  <div>
+    <label for="last_name">Last Name</label>
+    <input type="text" name="model" value="<%= @worker.last_name %>" placeholder="Last Name">
+  </div>
+  <div>
+    <label for="employer">Employer</label>
+    <input type="text" name="year" value="<%= @worker.employer %>" placeholder="Employer">
+  </div>
+  <div>
+    <label for="salary">Salary</label>
+    <input type="text" name="year" value="<%= @worker.salary %>" placeholder="Salary">
+  </div>
+
+  <input type="submit" value="Submit">
+
+  <% if(@worker.id != '') %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+
+</form>
