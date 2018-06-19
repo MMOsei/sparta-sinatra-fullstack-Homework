@@ -43,7 +43,6 @@ class IkealoversController < Sinatra::Base
     ikealover.first_name = params[:first_name]
     ikealover.last_name = params[:last_name]
     ikealover.ikea_visits = params[:ikea_visits]
-    ikealover.gender = params[:gender]
 
     ikealover.save
 
@@ -59,7 +58,6 @@ class IkealoversController < Sinatra::Base
     ikealover.first_name = params[:first_name]
     ikealover.last_name = params[:last_name]
     ikealover.ikea_visits = params[:ikea_visits]
-    ikealover.gender = params[:gender]
 
     ikealover.save
 

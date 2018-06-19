@@ -1,1 +1,26 @@
-<%= @ikealovers %>
+<h1>Index Page</h1>
+
+<table>
+  <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Ikea Visits</th>
+    <th colspan='2'></th>
+  </thead>
+  <tbody>
+    <% @ikealovers.each do |ikealover| %>
+      <tr>
+        <td><%= ikealover.first_name %></td>
+        <td><%= ikealover.last_name %></td>
+        <td><%= ikealover.ikea_visits %></td>
+        <td><a href="/ikealovers/<%= ikealover.id %>">See more</a></td>
+        <td>
+          <form class="" action="/ikealovers/<%= ikealover.id %>" method="post">
+            <input type="submit" name="" value="Delete">
+            <input type="hidden" name="_method" value="DELETE">
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -2,20 +2,20 @@
 
   <div>
     <label for="first_name">First Name</label>
-    <input type="text" name="first_name" value="<%= @ikealover.first_name %>" placeholder="Car Make">
+    <input type="text" name="first_name" value="<%= @ikealover.first_name %>" placeholder="First Name">
   </div>
   <div>
-    <label for="model">Model</label>
-    <input type="text" name="model" value="<%= @car.model %>" placeholder="Car Model">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="model" value="<%= @ikealover.last_name %>" placeholder="Last Name">
   </div>
   <div>
-    <label for="year">Year</label>
-    <input type="text" name="year" value="<%= @car.year %>" placeholder="Car Year">
+    <label for="ikea_visits">Ikea Visits</label>
+    <input type="text" name="year" value="<%= @ikealover.ikea_visits %>" placeholder="Ikea Visits">
   </div>
 
   <input type="submit" value="Submit">
 
-  <% if(@car.id != '') %>
+  <% if(@ikealover.id != '') %>
     <input type="hidden" name="_method" value="PUT">
   <% end %>
 

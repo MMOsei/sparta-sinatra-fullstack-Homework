@@ -1,6 +1,6 @@
 class Ikealover
 
-  attr_accessor :id, :first_name, :last_name, :ikea_visits, :gender
+  attr_accessor :id, :first_name, :last_name, :ikea_visits
 
   def self.open_connection
     conn = PG.connect( dbname: 'ikeamalt_data', port: 5431 )
@@ -27,9 +27,9 @@ class Ikealover
     conn = Ikealover.open_connection
 
     if (!self.id)
-      sql = "INSERT INTO mock_data (first_name,last_name,ikea_visits,gender) VALUES ('#{self.first_name}','#{self.last_name}','#{self.ikeikea_visits}','#{self.gender}')"
+      sql = "INSERT INTO mock_data (first_name,last_name,ikea_visits) VALUES ('#{self.first_name}','#{self.last_name}','#{self.ikea_visits}')"
     else
-      sql = "UPDATE mock_data SET first_name='#{self.first_name}', last_name='#{self.last_name}', ikea_visits='#{self.ikea_visits}', gender='#{self.gender}' WHERE id ='#{self.id}'"
+      sql = "UPDATE mock_data SET first_name='#{self.first_name}', last_name='#{self.last_name}', ikea_visits='#{self.ikea_visits}' WHERE id ='#{self.id}'"
     end
 
     conn.exec(sql)
@@ -65,7 +65,6 @@ class Ikealover
     ikealover.first_name = ikeamalt_data['first_name']
     ikealover.last_name = ikeamalt_data['last_name']
     ikealover.ikea_visits = ikeamalt_data['ikea_visits']
-    ikealover.gender = ikeamalt_data['gender']
 
     ikealover
 
